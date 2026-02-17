@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>View Employees</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <span class="navbar-brand">Admin Dashboard</span>
+      <div class="d-flex gap-2">
+        <a href="createemp.html" class="btn btn-success btn-sm">
+          + Add Employee
+        </a>
+        <button class="btn btn-danger btn-sm" onclick="logout()">Logout</button>
+      </div>
+  </nav>
+
+  <div class="d-flex">
+
+    <!-- Sidebar -->
+    <div class="sidebar bg-dark p-3">
+      <!-- <h6 class="text-light mb-3">MENU</h6> -->
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="dashboard.html">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="viewempdetails.html">View Employees</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="createemp.html">Create Employees</a>
+        </li>
+
+      </ul>
+    </div>
+
+
+    <div class="container mt-4">
+      <h4 class="mb-3">All Employees</h4>
+
+      <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Department</th>
+            <th>Designation</th>
+            <th>Address</th>
+            <th>Actions</th>
+          </tr>
+
+        </thead>
+        <tbody id="employeeTable">
+          <tr>
+            <td colspan="6" class="text-center">Loading...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        window.location.href = "login.html";
+      }
+
+      fetch("http://127.0.0.1:8000/api/admin/employees/", {
+        headers: {
+          "Authorization": "Bearer " + token
+        }
+      })
+        .then(res => {
+          if (res.status === 401) throw new Error("Unauthorized");
+          return res.json();
+        })
+        .then(data => {
+          const table = document.getElementById("employeeTable");
+          table.innerHTML = "";
+
+          if (data.length === 0) {
+            table.innerHTML = `
+          <tr>
+            <td colspan="7" class="text-center">No Employees Found</td>
+          </tr>`;
+            return;
+          }
+
+          data.forEach(emp => {
+            table.innerHTML += `
+          <tr>
+            <td>${emp.id}</td>
+            <td>${emp.first_name} ${emp.last_name}</td>
+            <td>${emp.email}</td>
+            <td>${emp.phone}</td>
+            <td>${emp.department}</td>
+            <td>${emp.designation}</td>
+            <td>${emp.address}</td>
+            
+            <td>
+              <button class="btn btn-info btn-sm" onclick="viewEmp(${emp.id})">View</button>
+              <button class="btn btn-warning btn-sm" onclick="editEmp(${emp.id})">Edit</button>
+              <button class="btn btn-danger btn-sm" onclick="deleteEmp(${emp.id})">Delete</button>
+            </td>
+          </tr>`;
+          });
+        })
+        .catch(() => {
+          alert("Session expired. Please login again.");
+          localStorage.clear();
+          window.location.href = "login.html";
+        });
+
+      // VIEW
+      function viewEmp(id) {
+        window.location.href = `viewemp.html?id=${id}`;
+      }
+
+      // EDIT
+      function editEmp(id) {
+        window.location.href = `editemp.html?id=${id}`;
+      }
+
+      // DELETE
+      function deleteEmp(id) {
+        if (!confirm("Are you sure you want to delete this employee?")) return;
+
+        fetch(`http://127.0.0.1:8000/api/admin/employees/${id}/`, {
+          method: "DELETE",
+          headers: {
+            "Authorization": "Bearer " + token
+          }
+        })
+          .then(res => {
+            if (res.ok) {
+              alert("Employee deleted successfully");
+              location.reload();
+            } else {
+              alert("Failed to delete employee");
+            }
+          });
+      }
+
+      function logout() {
+        localStorage.clear();
+        window.location.href = "login.html";
+      }
+    </script>
+
+
+</body>
+
+</html>

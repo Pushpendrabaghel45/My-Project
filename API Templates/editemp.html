@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Employee</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="p-4">
+
+    <h3>Edit Employee</h3>
+
+    <form id="editForm">
+        <input id="first_name" class="form-control mb-2" placeholder="First Name">
+        <input id="last_name" class="form-control mb-2" placeholder="Last Name">
+        <input id="phone" class="form-control mb-2" placeholder="Phone">
+        <input id="designation" class="form-control mb-2" placeholder="Designation">
+        <textarea id="address" class="form-control mb-2" placeholder="Address"></textarea>
+
+        <button class="btn btn-primary">Update</button>
+    </form>
+
+   <script>
+    const token = localStorage.getItem("token");
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    console.log("Employee ID:", id);
+
+    console.log("ID:", id);
+    console.log("Token:", token);
+
+    if (!token || !id) {
+        alert("Invalid session or employee ID");
+        window.location.href = "viewempdetails.html";
+    }
+
+    fetch(`http://127.0.0.1:8000/api/admin/employees/${id}/`, {
+        headers: {
+            "Authorization": "Bearer " + token
+        }
+    })
+        .then(res => res.json())
+        .then(emp => {
+            first_name.value = emp.first_name;
+            last_name.value = emp.last_name;
+            phone.value = emp.phone;
+            designation.value = emp.designation;
+            address.value = emp.address;
+        });
+
+    editForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        fetch(`http://127.0.0.1:8000/api/admin/employees/${id}/`, {
+            method: "PUT",
+            headers: {
+                "Authorization": "Bearer " + token,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                first_name: first_name.value,
+                last_name: last_name.value,
+                phone: phone.value,
+                designation: designation.value,
+                address: address.value
+            })
+        })
+            .then(res => {
+                if (res.ok) {
+                    alert("Employee updated successfully");
+                    window.location.href = "viewempdetails.html";
+                } else {
+                    alert("Update failed");
+                }
+            });
+    });
+</script>
+
+
+
+</body>
+
+</html>
