@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <!-- <img src="{{ url_for('static', filename='assets/image/swaminarayan -logo.png') }}"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <title>SevaTube-Index</title>
+    <style>
+        /* Reset & base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* height: 100%; */
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        /* Layout: full viewport with left vertical nav and right content */
+        .app {
+            /* display: flex; */
+            /* min-height: 100vh; full height */
+            background: #f5f7fb;
+        }
+
+        /* Left vertical nav */
+        .sidebar {
+            width: 250px;
+            /* change this value if you meant '1k' as 1000px */
+            background: linear-gradient(180deg, #000000, #000000);
+            color: #fff;
+            padding: 20px 16px;
+            position: fixed;
+            /* keep it fixed while scrolling content */
+            top: 0;
+            left: 0;
+            bottom: 0;
+            overflow: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            box-shadow: 2px 0 8px rgba(2, 6, 23, 0.2);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .brand .logo {
+            width: 40px;
+            height: 40px;
+            background: #fff2;
+            border-radius: 8px;
+            /* display: inline-grid; */
+            place-items: center;
+            color: #0b1220;
+            font-weight: 700;
+        }
+
+        .brand h1 {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .brand p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .nav {
+            list-style: none;
+            /* display: flex;
+        flex-direction: column; */
+            gap: 6px;
+            margin-top: 6px;
+        }
+
+        .nav a {
+            display: flex;
+            align-items: center;
+
+            border-radius: 8px;
+            gap: 10px;
+
+            padding: 10px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .nav a:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .nav a.active {
+            background: linear-gradient(90deg,
+                    rgba(99, 102, 241, 0.15),
+                    rgba(59, 130, 246, 0.08));
+            border-left: 3px solid #6366f1;
+            padding-left: 8px;
+        }
+
+        .spacer {
+            flex: 1;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Right content area — leave space for fixed sidebar */
+        .content-wrap {
+            margin-left: 250px;
+            /* same as .sidebar width */
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header.topbar {
+            height: 64px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            background-color: #FF9933;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.04);
+        }
+
+        header.topbar h2 {
+            font-size: 18px;
+        }
+
+        main {
+            padding: 18px;
+            flex: 1;
+        }
+
+        /* iframe content area fills available space */
+        .preview {
+            height: calc(100vh - 64px - 36px);
+            /* viewport minus header & padding */
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(2, 6, 23, 0.06);
+            background: #fff;
+        }
+
+        .preview iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Responsive: collapse sidebar to top on small screens */
+        @media (max-width: 720px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                flex-direction: row;
+                align-items: center;
+                padding: 10px 12px;
+            }
+
+            .nav {
+                flex-direction: row;
+                overflow: auto;
+            }
+
+            .content-wrap {
+                margin-left: 0;
+            }
+
+            .preview {
+                height: 60vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="brand">
+                <!-- <img src="{{ url_for('static', filename='assets/image/swaminarayan -logo.png') }}"> -->
+                <div>
+                    <h1>Savatube</h1>
+                    <p> Watch, Learn, and Serve through Swaminarayan Teachings </p>
+                </div>
+            </div>
+
+            <ul class="nav" id="navList">
+                <li>
+                    <a href="#" data-link="/" class="active">Home page</a>
+                </li>
+                <li>
+                    <a href="#" data-link="/latest_video">Latest-video</a>
+                </li>
+
+                <li>
+                    <a href="#" data-link="/god">About Swaminarayan</a>
+                </li>
+                <li>
+                    <a href="#" data-link="/sampraday"> About Sampraday</a>
+                </li>
+                <li><a href="#" data-link="/sants"> About Sants</a></li>
+                <li>
+                    <a href="#" data-link="/temples"> About Temples</a>
+                </li>
+                <li>
+                    <a href="#" data-link="/acharya"> About Acharya</a>
+                </li>
+            </ul>
+
+            <div class="spacer"></div>
+
+            <div class="footer-note">
+                Tip: click any nav item to load the page on the right.
+            </div>
+        </aside>
+
+        <section class="content-wrap">
+            <header class="topbar">
+                <h2 id="pageTitle">Home</h2>
+                
+
+            </header>
+
+            <main>
+                <div class="preview" id="preview">
+                    <!-- iframe used to open pages on the right side -->
+                    <iframe src="/" id="contentFrame" title="Preview"></iframe>
+                </div>
+            </main>
+        </section>
+    </div>
+
+    <script>
+        // Simple JS to open link in right-side iframe and mark active nav link
+        const nav = document.getElementById("navList");
+        const frame = document.getElementById("contentFrame");
+        const title = document.getElementById("pageTitle");
+
+        nav.addEventListener("click", (e) => {
+            const a = e.target.closest("a");
+            if (!a) return;
+            e.preventDefault();
+            const url = a.dataset.link;
+            if (!url) return;
+
+            // Set iframe src to load the page
+            frame.src = url;
+
+            // Update active link styles
+            document
+                .querySelectorAll("#navList a")
+                .forEach((x) => x.classList.remove("active"));
+            a.classList.add("active");
+
+            // Update header title to the link hostname or text
+            try {
+                const u = new URL(url);
+                title.textContent = u.hostname.replace("www.", "");
+            } catch (err) {
+                title.textContent = a.textContent.trim();
+            }
+        });
+    </script>
+</body>

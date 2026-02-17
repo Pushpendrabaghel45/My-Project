@@ -1,0 +1,65 @@
+{% extends "admin.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+
+<div id="content">
+    <h2 class="mb-4">Dashboard</h2>
+
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div class="card shadow p-3">
+                <h5 class="card-title">Total Users</h5>
+                <p>{{ total_users }}</p>
+                <!-- <h2>120</h2> -->
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card shadow p-3">
+                <h5 class="card-title">Total Videos</h5>
+                <p>{{ total_videos }}</p>
+                <!-- <h2>30</h2> -->
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card shadow p-3">
+                <h5 class="card-title">Total Members</h5>
+                <p>{{ total_members }}</p>
+                <!-- <h2>15</h2> -->
+            </div>
+        </div>
+    </div>
+
+    Placeholder for future charts / tables
+    <div class="card shadow p-4">
+        <h4>Analytics (Coming Soon)</h4>
+        <p>Charts and graphs will be displayed here.</p>
+    </div>
+    <!-- <p>{{ total_users }}</p>
+    <p>{{ total_videos }}</p>
+    <p>{{ total_members }}</p> -->
+
+</div>
+
+<!-- <div class="row">
+<div class="col-md-3">
+<div class="card p-3 shadow-sm">
+<h4>Total Videos</h4>
+<p>{{ total_videos }}</p>
+</div>
+</div>
+<div class="col-md-3">
+<div class="card p-3 shadow-sm">
+<h4>Total Users</h4>
+<p>{{ total_users }}</p>
+</div>
+</div>
+<div class="col-md-3">
+<div class="card p-3 shadow-sm">
+<h4>Total Admins</h4>
+<p>{{ total_admins }}</p>
+</div>
+</div>
+</div> -->
+{% endblock %}

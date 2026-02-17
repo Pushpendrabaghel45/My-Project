@@ -1,0 +1,18 @@
+{% extends "admin.html" %}
+{% block title %}Edit Admin{% endblock %}
+
+{% block content %}
+<h2>Edit Admin</h2>
+
+<form method="POST" class="mt-4">
+    <div class="mb-3">
+        <label>Username</label>
+        <input type="text" name="username" value="{{ admin.username }}" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Password</label>
+        <input type="password" name="password" value="{{ admin.password }}" class="form-control" required>
+    </div>
+    <button class="btn btn-primary">Update Admin</button>
+</form>
+{% endblock %}

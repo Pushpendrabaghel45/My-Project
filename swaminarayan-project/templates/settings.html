@@ -1,0 +1,25 @@
+{% extends 'admin.html' %}
+
+{% block title %}Settings{% endblock %}
+
+{% block content %}
+
+<h2>Settings</h2>
+
+<form action="{{ url_for('settings') }}" method="POST" class="mt-4">
+
+    <div class="mb-3">
+        <label>Website Name</label>
+        <input type="text" name="site_name" value="{{ settings.site_name }}" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label>Contact Email</label>
+        <input type="email" name="contact_email" value="{{ settings.contact_email }}" class="form-control">
+    </div>
+
+    <button class="btn btn-primary">Save Settings</button>
+
+</form>
+
+{% endblock %}

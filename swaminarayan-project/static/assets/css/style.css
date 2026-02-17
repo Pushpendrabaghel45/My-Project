@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    width: 97%;
+    border-radius: 40px;
+    color: white;  
+    background-color: black;
+}
+body{
+    background-color: #FF9933;
+    /* background-color: #ffd27f; */
+ }
+ .white-text{
+    color: white;
+ }
+ header a{
+    color: white;   
+    
+ }
+ .hero-section {
+    height: 90vh;
+}
+.card-colour{
+   background-color: #dcb997;
+}
+.dropdown-col{
+   background-color: #dcb997;
+}
+
+.simple-footer {
+    background: #111;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.simple-footer p {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.social-icons img {
+    width: 28px;
+    margin: 0 8px;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.social-icons img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}

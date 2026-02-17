@@ -1,0 +1,17 @@
+{% extends "admin.html" %}
+{% block title %}Edit Video{% endblock %}
+{% block content %}
+<h2>Edit Video</h2>
+
+<form action="/edit_video/{{ video.id }}" method="POST" enctype="multipart/form-data" class="mt-4">
+<div class="mb-3">
+<label>Title</label>
+<input type="text" name="title" value="{{ video.title }}" class="form-control">
+</div>
+<div class="mb-3">
+<label>Replace Thumbnail</label>
+<input type="file" name="thumbnail" class="form-control">
+</div>
+<button class="btn btn-primary">Update</button>
+</form>
+{% endblock %}

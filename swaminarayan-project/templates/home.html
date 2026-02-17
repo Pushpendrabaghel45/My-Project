@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <img href="{{ url_for('static', filename='assests/css/style.css') }}"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- WOW.js depends on Animate 3 also -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!-- <link rel="stylesheet" href="../assest/css/style.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}">
+    <title>SevaTube</title>
+</head>
+
+<body>
+    <header class="mx-auto mt-2 mb-2 animate__animated animate__fadeInDown">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid justify-content-between">
+                <a class="navbar-brand" href="#">Savatube</a>
+                <div class="justify-content-between">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon white-text">ggg</span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-link" href="/sampraday">Sampraday</a>
+                            <a class="nav-link" href="/sants">Swami</a>
+                            <a class="nav-link" href="/index">Index</a>
+                        </div>
+                        <div class="dropdown mr-2">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                About
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/god">God</a></li>
+                                <li><a class="dropdown-item" href="/temples">Temples</a></li>
+                                <li><a class="dropdown-item" href="/sants">Sants</a></li>
+                                <li><a class="dropdown-item" href="/acharya">Aacharya</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="/login" class="btn btn-warning btn-lg ">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+   
+    <hr>
+    <section class="hero-section d-flex align-items-center text-center text-white">
+        <div class="container-fluid">
+            <h1 class="display-4 fw-bold animate__animated animate__fadeInLeft">Welcome to SevaTube Pravachan Portal
+            </h1>
+            <p class="lead mt-3 animate__animated animate__fadeInRight">
+                Watch, Learn, and Serve through Swaminarayan Teachings
+            </p>
+            <p class="lead mt-3 animate__animated animate__fadeInRight">
+                A divine platform to watch inspiring pravachans and spiritual teachings.
+            </p>
+
+            <div class="mt-4">
+                <a href="/registration" class="btn btn-warning btn-lg me-3"> Registration </a>
+                <a href="/login" class="btn btn-warning btn-lg">Login / Sign Up</a>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section>
+        <div id="carouselExampleSlidesOnly" class="carousel slide pr-5 pl-5 " data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active rounded-2">
+                    <img src="{{ url_for('static', filename='assets/image/sec-1-img-1.png') }}" class="d-block w-100"
+                        title="Swaminarayan God" alt="Swaminarayan God">
+
+
+                </div>
+                <div class="carousel-item rounded-2">
+                    <img src="{{ url_for('static', filename='assets/image/sec-1img2.png') }}" class="d-block w-100"
+                        title="Swaminarayan God" alt="Swaminarayan God">
+
+                </div>
+                <div class="carousel-item rounded-2">
+                    <img src="{{ url_for('static', filename='assets/image/sec-1-img3.png') }}" class="d-block w-100"
+                        title="Swaminarayan God" alt="Swaminarayan God">
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section>
+        <div class="container-fluid">
+
+            <div class="row g-0 bg-body-secondary position-relative">
+                <div class="col-md-6 mb-md-0 p-md-4 ml-5 animate__animated animate__fadeInLeft ">
+                    <img src="{{ url_for('static', filename='assets/image/sec-1-img4.png') }}" class="d-block w-100"
+                        title="Swaminarayan God" alt="Swaminarayan God">
+
+
+                </div>
+                <div class="col-md-5 p-4 ps-md-0 align-items-center animate__animated animate__fadeInRight">
+                    <h5 class="mt-0">A Brief History of Swaminarayan and His Contribution to Society</h5>
+                    <p class="text-justify">Swaminarayan, born as Ghanshyam Pande in 1781 in Chhapaiya (Uttar Pradesh),
+                        was a Hindu spiritual
+                        leader and the founder of the Swaminarayan Sampradaya, a reformist movement within Vaishnavism.
+                        At
+                        the age of 11, he left home as Neelkanth Varni and travelled across India for 7 years, promoting
+                        purity, devotion, and dharma. In 1800, he settled in Gujarat, where people were suffering from
+                        social problems, superstition, and violence. Swaminarayan worked to uplift society by stopping
+                        addictions, violence, animal sacrifice, and promoting education, morality, and equality for
+                        women
+                        and all communities.</p>
+                    <p class="text-justify">
+                        In 1801, he was given the name Sahajanand Swami by his guru Ramanand Swami and later became
+                        leader
+                        of the fellowship. He established temples, taught people to follow strict moral living (like no
+                        alcohol, no meat, honesty, devotion to God), and wrote scriptures such as the Shikshapatri. His
+                        followers believe him to be a divine incarnation. The Swaminarayan Sampradaya grew rapidly in
+                        Gujarat and later across the world. Today, branches such as BAPS, Vadtal, and Ahmedabad diocese
+                        continue his teachings, running temples, schools, hospitals, and humanitarian work globally.
+                    </p>
+                    <a href="https://en.wikipedia.org/wiki/Swaminarayan" class="stretched-link">Know more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section class="py-5">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4 animate__animated animate__fadeInDown">About This Platform</h2>
+                    <p class="lead">
+                        This website is created to share spiritual knowledge, pravachans, and
+                        teachings of the Swaminarayan Sampraday. Our purpose is to make satsang easily
+                        accessible to everyone, anytime and anywhere.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4 animate__animated animate__fadeInDown">Who Can Use This Website?</h2>
+
+            <div class="row g-4 ">
+                <div class="col-md-4 animate__animated animate__fadeInLeft">
+                    <div class="card h-100 card-colour shadow-lg">
+                        <div class="card-body text-center">
+                            <h3 class="card-title">User</h3>
+                            <p class="card-text">
+                                Can browse and watch pravachan videos. Each video can be watched only once.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animate__animated animate__fadeInDown">
+                    <div class="card h-100 card-colour shadow-lg">
+                        <div class="card-body text-center">
+                            <h3 class="card-title">Member</h3>
+                            <p class="card-text">
+                                Can upload new pravachans and contribute to the spiritual content.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animate__animated animate__fadeInRight">
+                    <div class="card h-100 card-colour shadow-lg">
+                        <div class="card-body text-center">
+                            <h3 class="card-title">Admin</h3>
+                            <p class="card-text">
+                                Manages content, users, members and maintains platform quality.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <footer class="simple-footer">
+        <p>© 2025 Your Website Name</p>
+
+        <div class="social-icons">
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram"></a>
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+    <script src="./assist/Js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+
+</body>
+</html>

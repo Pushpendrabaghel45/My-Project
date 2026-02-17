@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Admin Panel{% endblock %}</title>
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .row{
+            display: flex;
+        }
+
+        body {
+            font-family: Inter, system-ui;
+            background: #f6f7fb;
+        }
+
+        /* Sidebar Like Code 1 */
+        .sidebar {
+            width: 250px;
+            background: #000;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            padding: 20px 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .brand {
+            margin-bottom: 20px;
+        }
+
+        .nav {
+            display: block;
+        }
+
+        .brand h1 {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .brand p {
+            font-size: 12px;
+            opacity: 0.6;
+        }
+
+        .nav a {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 8px;
+            gap: 10px;
+            color: #ffffffcc;
+            text-decoration: none;
+            font-size: 14px;
+            flex-direction: row;
+        }
+
+        .nav a:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .nav a.active {
+            background: linear-gradient(90deg, rgba(99, 102, 241, 0.15), rgba(59, 130, 246, 0.08));
+            border-left: 3px solid #6366f1;
+            padding-left: 7px;
+        }
+
+        .spacer {
+            flex: 1;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            opacity: 0.6;
+        }
+
+        /* Content Area */
+        .content-wrap {
+            margin-left: 250px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .topbar {
+            height: 60px;
+            background: #FF9933;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            color: #000;
+        }
+
+        .topbar h2 {
+            font-size: 18px;
+        }
+
+        main {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="brand">
+            <h1>Admin Panel</h1>
+            <p>Manage SevaTube</p>
+        </div>
+
+        <ul class="nav" id="adminNav">
+            <li><a href="{{ url_for('dashboard') }}" class="{% if request.endpoint=='dashboard' %}active{% endif %}">
+                    <i class="fa fa-home"></i> Dashboard</a></li>
+
+            <li><a href="{{ url_for('manage_videos') }}"
+                    class="{% if request.endpoint=='manage_videos' %}active{% endif %}">
+                    <i class="fa fa-video"></i> Manage Videos</a></li>
+
+            <li><a href="{{ url_for('manage_users') }}"
+                    class="{% if request.endpoint=='manage_users' %}active{% endif %}">
+                    <i class="fa fa-users"></i> Manage Users</a></li>
+
+            <li><a href="{{ url_for('manage_admins') }}"
+                    class="{% if request.endpoint=='manage_admins' %}active{% endif %}">
+                    <i class="fa fa-user-shield"></i> Admins</a></li>
+
+            <!-- <li><a href="{{ url_for('add_video') }}" class="{% if request.endpoint=='add_video' %}active{% endif %}">
+                <i class="fa fa-add"></i> Add Video</a></li> -->
+
+            <li><a href="{{ url_for('settings') }}" class="{% if request.endpoint=='settings' %}active{% endif %}">
+                    <i class="fa fa-gear"></i> Settings</a></li>
+
+            <li><a href="{{ url_for('logout') }}">
+                    <i class="fa fa-right-from-bracket"></i> Logout</a></li>
+        </ul>
+
+        <div class="spacer"></div>
+
+        <p class="footer-note">Admin Navigation Panel</p>
+    </aside>
+
+    <!-- Right Content -->
+    <section class="content-wrap">
+        <header class="topbar">
+            <h2>{% block header_title %}{% endblock %}</h2>
+        </header>
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </section>
+
+</body>
+
+</html>
