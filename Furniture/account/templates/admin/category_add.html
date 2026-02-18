@@ -1,0 +1,43 @@
+{% extends "./admin_base.html" %}
+{% block content %}
+
+<body class="bg-light">
+
+<div class="container-fluid">
+  <div class="row">
+
+   
+    <!-- MAIN CONTENT -->
+    <main class="col-md-9 col-lg-10 p-4">
+      <div class="card shadow-sm" style="max-width: 500px;">
+        <div class="card-body">
+
+          <h4 class="mb-3">Add Category</h4>
+
+          <form method="POST">
+            {% csrf_token %}
+
+            <div class="mb-3">
+              <label class="form-label">Category Name</label>
+              <input type="text" name="name" class="form-control" placeholder="Enter category name" required>
+            </div>
+
+            <div class="d-flex gap-2">
+              <button type="submit" class="btn btn-success w-50">
+                Save
+              </button>
+              <a href="{% url 'admin_categories' %}" class="btn btn-secondary w-50">
+                Back
+              </a>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+{% endblock %}

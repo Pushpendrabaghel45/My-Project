@@ -1,0 +1,398 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #1d1d1d;
+  background: #ffffff;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.top-bar {
+  background: #111;
+  color: #fff;
+  font-size: 13px;
+  padding: 6px 0;
+}
+
+.top-right i {
+  font-size: 11px;
+}
+
+.header {
+  padding: 18px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  /* font-weight: 700; */
+  /* letter-spacing: 1px; */
+  width: 20%;
+  /* height: 100px; */
+}
+
+/* .header-icons i {
+  font-size: 20px;
+  margin-left: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.header-icons i:hover {
+  color: #a06a3b;
+} */
+
+.social-header-icons {
+  display: flex;
+  gap: 22px;
+}
+
+.social-header-icons i {
+  font-size: 20px;
+  color: #000;        /* Same color as existing icons */
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.social-header-icons i:hover {
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+
+
+.navbar .nav-link {
+  font-weight: 500;
+  font-size: 15px;
+  color: #222;
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link:hover {
+  color: #a06a3b;
+}
+
+.hero-section {
+  background: #f9f6f1;
+  padding: 80px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-tag {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #a06a3b;
+  margin-bottom: 15px;
+}
+
+.hero-content h1 {
+  font-size: 54px;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.hero-content span {
+  font-weight: 700;
+}
+
+.hero-desc {
+  color: #666;
+  max-width: 420px;
+  margin-bottom: 30px;
+}
+
+.hero-buttons .btn {
+  padding: 12px 26px;
+  border-radius: 0;
+  margin-right: 10px;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  text-align: center;
+}
+
+.hero-chair {
+  max-width: 85%;
+  /* animation: floatChair 4s ease-in-out infinite; */
+}
+
+.circle-text {
+  position: absolute;
+  top: 50%;
+  right: 70%;
+  width: 140px;
+  height: 140px;
+  transform: translate(-50%, -50%);
+  border-radius: 100px;
+  background-color: #f3f3f3;
+}
+
+.circle-text svg {
+  width: 100%;
+  height: 100%;
+  animation: rotateText 12s linear infinite;
+}
+
+.circle-text text {
+  font-size: 8px;
+  letter-spacing: 3px;
+  fill: #000;
+}
+
+.circle-text .play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+@keyframes floatChair {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+  100% { transform: translateY(0); }
+}
+
+
+
+@keyframes rotateText {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Optional: Center play button */
+.play-btn {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+
+.hero-stamp {
+  position: absolute;
+  top: 40%;
+  left: 55%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px dashed #a06a3b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spin 10s linear infinite;
+}
+
+.hero-stamp span {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #a06a3b;
+  text-align: center;
+}
+
+@keyframes spin {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+
+.hero-stats {
+  margin-top: 50px;
+}
+
+.hero-stats h3 {
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.hero-stats p {
+  font-size: 13px;
+  color: #666;
+}
+
+.category-section {
+  padding: 80px 0;
+}
+
+.category-section h2 {
+  font-size: 36px;
+}
+
+.category-item {
+  text-align: center;
+  margin: 0 10px;
+  transition: 0.4s;
+}
+
+.category-item img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #f3f3f3;
+  padding: 20px;
+  margin-bottom: 12px;
+  transition: 0.4s;
+}
+
+.category-item:hover img {
+  transform: scale(1.1);
+  background: #ead9c6;
+}
+
+.category-item p {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.living-section {
+  padding: 80px 0;
+  background: #fafafa;
+}
+
+.living-img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.living-box {
+  background: #fff;
+  padding: 40px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  margin-left: -80px;
+}
+
+.living-box h5 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.product-section {
+  padding: 80px 0;
+}
+
+.section-head h2 {
+  font-size: 34px;
+}
+
+.filter-links span {
+  margin-left: 18px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #777;
+}
+
+.filter-links span.active,
+.filter-links span:hover {
+  color: #a06a3b;
+}
+
+.product-card {
+  text-align: center;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.sofa-banner {
+  background: url('../images/banners/sofa.jpg') center/cover no-repeat;
+  height: 380px;
+  position: relative;
+  margin: 80px 0;
+}
+
+.sofa-banner .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sofa-banner h2 {
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+
+.footer {
+  background: #111;
+  color: #ccc;
+  padding: 70px 0 50px;
+}
+
+.footer h4,
+.footer h5 {
+  color: #fff;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.footer-links a{
+  color: black;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 13px;
+  margin-top: 40px;
+  color: #777;
+}
+.footer-contact a{
+  color: black;
+}
+
+
+.hero-content,
+.hero-image-wrapper,
+.category-item,
+.living-box,
+.product-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+

@@ -1,0 +1,38 @@
+{% extends "./admin_base.html" %}
+{% block content %}
+<body class="bg-light">
+
+<div class="container-fluid">
+  <div class="row">
+
+    
+    <!-- Main Content -->
+    <main class="col-md-9 col-lg-10 p-4">
+      <h2 class="mb-4">Dashboard</h2>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card shadow-sm">
+            <div class="card-body text-center">
+              <h5 class="card-title">Total Products</h5>
+              <p class="display-6 fw-bold">{{ product_count }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card shadow-sm">
+            <div class="card-body text-center">
+              <h5 class="card-title">Total Categories</h5>
+              <p class="display-6 fw-bold">{{ category_count }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+</div>
+
+{% endblock %}

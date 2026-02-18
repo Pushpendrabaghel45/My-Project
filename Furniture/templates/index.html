@@ -1,0 +1,365 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="hero-section">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <div class="col-lg-5 hero-content">
+        <p class="hero-tag">{{data.title}}</p>
+        <h1>
+          {{ hero.title }}<br>
+          <span>{{ hero.subtitle }}</span>
+        </h1>
+
+        <p class="hero-desc">{{ hero.description }}</p>
+
+        <div class="hero-buttons">
+          <a class="btn btn-dark">View Our Collection</a>
+          <a class="btn btn-outline-dark">Learn More</a>
+        </div>
+      </div>
+
+      <div class="col-lg-7 hero-image-wrapper">
+        <img src="{% static 'assets/images/' %}{{ hero.image.url }}" class="hero-chair">
+        <br>
+
+        <!-- <div class="hero-stamp">
+              <span>PLAY VIDEO • PLAY VIDEO •</span>
+            </div> -->
+        <div class="circle-text">
+          <svg viewBox="0 0 100 100">
+            <defs>
+              <path id="circlePath" d="M 50, 50
+           m -35, 0
+           a 35,35 0 1,1 70,0
+           a 35,35 0 1,1 -70,0" />
+            </defs>
+            <text>
+              <textpath href="#circlePath">
+                MAKE THE ORDINARY • EXTRAORDINARY •
+              </textpath>
+            </text>
+          </svg>
+
+          <div class="play-btn">▶</div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="row hero-stats text-center">
+      <!-- {{counters}} -->
+      {% for counter in counters %}
+      <div class="col">
+        <h3>{{ counter.value }}</h3>
+        <p>{{ counter.title }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="category-section">
+  <div class="container text-center">
+    <h2>Discover By Category</h2>
+
+    <div class="row justify-content-center mt-4">
+
+      <div class="col category-item">
+        <img src="/static/assets/Images/bench.png">
+        <p>Bench</p>
+      </div>
+
+      <div class="col category-item">
+        <img src="/static/assets/Images/bookcase.png">
+        <p>Bookcase</p>
+      </div>
+
+      <div class="col category-item">
+        <img src="/static/assets/Images/dressingtable.jpg">
+        <p>Dining Table</p>
+      </div>
+
+      <div class="col category-item">
+        <img src="/static/assets/Images/studytable.png">
+        <p>Dressing Table</p>
+      </div>
+
+      <div class="col category-item">
+        <img src="/static/assets/Images/wooden.png">
+        <p>Office Chair</p>
+      </div>
+
+      <div class="col category-item">
+        <img src="/static/assets/Images/lamp.png">
+        <p>Sofa</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="living-section">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+
+      <div class="col-lg-7">
+        <img src="/static/assets/Images/bed.jpg" class="living-img">
+      </div>
+
+      <div class="col-lg-5 living-box">
+        <h5>Elegant Luxury Sofa</h5>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Sed do eiusmod tempor incididunt.
+        </p>
+        <a class="btn btn-outline-dark">Shop Now</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="product-section">
+  <div class="container">
+    <div class="section-head d-flex justify-content-between">
+      <h2>Shop Premium Collections</h2>
+      <div class="filter-links">
+        <span class="active">All</span>
+        <!-- <span>Best Selling</span> -->
+        <span>New Arrival</span>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      {% for product in products %}
+      <div class="col-lg-3 product-card">
+        <img src="{{ product.image.url }}" class="img-fluid">
+
+        <h6>{{ product.name }}</h6>
+      </div>
+
+      <!-- 
+      <div class="col-lg-3 product-card">
+        <img src="{{ product.image.url }}" class="img-fluid">
+        <h6>{{ product.name }}</h6>
+
+      </div>
+
+      <div class="col-lg-3 product-card">
+        <img src="{{ product.image.url }}" class="img-fluid">
+        <h6>{{ product.name }}</h6>
+      </div>
+
+      <div class="col-lg-3 product-card">
+        <img src="{{ product.image.url }}" class="img-fluid">
+        <h6>{{ product.name }}</h6>
+
+      </div> -->
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+<section class="sofa-banner">
+  <div class="overlay">
+    <h2>The Sofa You'll Love Forever</h2>
+    <p>Comfort • Quality • Style</p>
+    <a href="shop" class="btn btn-light">Shop Now</a>
+  </div>
+</section>
+
+<section class="container py-5">
+  <div class="row text-center">
+    <div class="col-md-3 col-6 mb-4">
+      <h2 class="counter" data-target="10000">0</h2>
+      <p>Happy Customers</p>
+    </div>
+    <div class="col-md-3 col-6 mb-4">
+      <h2 class="counter" data-target="100">0+</h2>
+      <p>Products</p>
+    </div>
+    <div class="col-md-3 col-6 mb-4">
+      <h2 class="counter" data-target="15">0+</h2>
+      <p>Years Experience</p>
+    </div>
+    <div class="col-md-3 col-6 mb-4">
+      <h2 class="counter" data-target="50">0+</h2>
+      <p>Partners</p>
+    </div>
+  </div>
+</section>
+
+<section class="container py-5 discover-category">
+
+  <div class="d-flex justify-content-between align-items-start mb-5">
+    <div>
+      <p class="section-tag">◆ SHOP SMART, SHOP SORTED</p>
+      <h2 class="mb-3">Discover By Category</h2>
+      <p class="section-desc">
+        Vehicula magna morbi netus augue odio suscipit maecenas ridiculus<br>
+        laoreet sodales dignissim iaculis vulputate
+      </p>
+    </div>
+
+    <div class="category-arrows">
+      <span>
+        <i class="bi bi-arrow-left"></i>
+      </span>
+      <span>
+        <i class="bi bi-arrow-right"></i>
+      </span>
+    </div>
+
+  </div>
+
+  <!-- Categories -->
+  <div class="row text-center justify-content-between">
+    {% for cat in categories %}
+    <div class="col-md-2 col-6 mb-5">
+      <div class="category-circle">
+        <img src="{{ cat.image.url }}" class="img-fluid">
+      </div>
+      <p class="category-title">{{ cat.name }}</p>
+      <span>- {{ cat.item_count }} ITEMS -</span>
+    </div>
+    {% endfor %}
+  </div>
+  </div>
+  
+</section>
+
+    <!-- <div class="col-md-2 col-6 mb-5">
+      <div class="category-circle">
+        <img src="{{ cat.image.url }}" class="img-fluid">
+      </div>
+      <p class="category-title">{{ cat.name }}</p>
+      <span>- {{ cat.item_count }} ITEMS -</span>
+    </div>
+
+    <div class="col-md-2 col-6 mb-5">
+      <div class="category-circle">
+        <img src="{{ cat.image.url }}" class="img-fluid">
+      </div>
+      <p class="category-title">{{ cat.name }}</p>
+      <span>- {{ cat.item_count }} ITEMS -</span>
+    </div>
+
+    <div class="col-md-2 col-6 mb-5">
+      <div class="category-circle">
+        <img src="{{ cat.image.url }}" class="img-fluid">
+      </div>
+      <p class="category-title">{{ cat.name }}</p>
+      <span>- {{ cat.item_count }} ITEMS -</span>
+  </div>
+
+  <div class="col-md-2 col-6 mb-5">
+    <div class="category-circle">
+      <img src="{{ cat.image.url }}" class="img-fluid">
+    </div>
+    <p class="category-title">{{ cat.name }}</p>
+    <span>- {{ cat.item_count }} ITEMS -</span>
+  </div> -->
+  
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h3>Elegant Luxury Sofa</h3>
+        <p>Perfect blend of comfort and modern design.</p>
+        <a href="shop" class="btn btn-dark">Shop Now</a>
+      </div>
+      <div class="col-md-6">
+        <img src="https://furniforma.wpengine.com/wp-content/uploads/2024/12/Hostspot-banner-01-bg-2048x1016.jpg"
+          class="img-fluid rounded">
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container py-5">
+  <div class="row align-items-center">
+    <div class="col-md-4">
+      <img src="https://furniforma.wpengine.com/wp-content/uploads/2024/12/Home-1-counter-bg-img-01.png"
+        class="img-fluid">
+    </div>
+    <div class="col-md-8">
+      <h3>Hurry! Deals End Soon</h3>
+      <div class="d-flex gap-3 mt-3" id="countdown">
+        <div>
+          <h4 id="days">00</h4><span>Days</span>
+        </div>
+        <div>
+          <h4 id="hours">00</h4><span>Hours</span>
+        </div>
+        <div>
+          <h4 id="minutes">00</h4><span>Min</span>
+        </div>
+        <div>
+          <h4 id="seconds">00</h4><span>Sec</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container py-5">
+  <h2 class="mb-4">Shop Premium Collections</h2>
+  <div class="row">
+    {% for product in products %}
+    <div class="col-md-3 col-6 mb-4">
+      <div class="product-card">
+        <img src="{{ product.image.url }}" class="img-fluid">
+        <h6>{{ product.name }}</h6>
+
+      </div>
+      <!-- </div>
+    <div class="col-md-3 col-6 mb-4">
+      <div class="product-card">
+        <img src="{{ product.image.url }}" class="img-fluid">
+        <h6>{{ product.name }}</h6>
+      </div>
+    </div>
+    <div class="col-md-3 col-6 mb-4">
+      <div class="product-card">
+        <img src="{{ product.image.url }}" class="img-fluid">
+        <h6>{{ product.name }}</h6>
+
+      </div>
+    </div>
+    <div class="col-md-3 col-6 mb-4">
+      <div class="product-card">
+        <img src="{{ product.image.url }}" class="img-fluid">
+        <h6>{{ product.name }}</h6> -->
+
+    </div>
+    {% endfor %}
+  </div>
+  </div>
+</section>
+
+<section class="py-5 text-center bg-warning">
+  <h2>The Sofa You'll Love Forever</h2>
+  <p>Designed for comfort & elegance</p>
+  <a href="shop" class="btn btn-dark">View Collection</a>
+</section>
+
+<section class="py-5 bg-light text-center">
+  <h2>Feedback Fuels Us</h2>
+  <p>"{{ testimonial.message }}"</p>
+  <strong>- {{ testimonial.name }}</strong>
+</section>
+{% endblock %}
+
+
+
+
+
+
+
+<!-- user = admin
+password= adm@1234 -->

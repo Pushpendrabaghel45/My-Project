@@ -1,0 +1,32 @@
+{% extends "./admin_base.html" %}
+{% block content %}
+<body>
+
+<div class="container mt-5">
+  <h3>Add Category</h3>
+
+  <form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <label>Contanct Number</label>
+      <input type="text" name="name" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" name="name" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label>Instagram</label>
+      <input type="text" name="name" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label>Linkedin</label>
+      <input type="text" name="name" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    <a href="{% url 'admin_categories' %}" class="btn btn-secondary">Back</a>
+  </form>
+</div>
+
+{% endblock %}

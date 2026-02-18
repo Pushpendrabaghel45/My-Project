@@ -1,0 +1,65 @@
+{% extends "./admin_base.html" %}
+{% block content %}
+<body class="bg-light">
+
+  <div class="container-fluid">
+    <div class="row">
+
+
+      <!-- MAIN CONTENT -->
+      <main class="col-md-9 col-lg-10 p-4">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2>Products</h2>
+          <a href="{% url 'add_product' %}" class="btn btn-primary">
+            <i class="bi bi-plus-lg"></i> Add Product
+          </a>
+        </div>
+
+        <div class="card shadow-sm">
+          <div class="card-body">
+
+            <div class="table-responsive">
+              <table class="table table-striped table-hover align-middle">
+                <thead class="table-dark">
+                  <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th class="text-center">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for p in products %}
+                  <tr>
+                    <td>{{ p.name }}</td>
+                    <td>₹ {{ p.price }}</td>
+                    <td class="text-center">
+                      <a href="{% url 'edit_product' p.id %}" class="btn btn-sm btn-warning">
+                        <i class="bi bi-pencil"></i> Edit
+                      </a>
+                      <a href="{% url 'delete_product' p.id %}" class="btn btn-sm btn-danger"
+                        onclick="return confirm('Are you sure you want to delete this product?')">
+                        <i class="bi bi-trash"></i> Delete
+                      </a>
+                    </td>
+                  </tr>
+                  {% empty %}
+                  <tr>
+                    <td colspan="3" class="text-center text-muted">
+                      No products found
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+{% endblock %}

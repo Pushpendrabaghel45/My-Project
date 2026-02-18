@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <section class="container py-5">
+    <div class="row">
+      <div class="col-md-6 fade-up">
+        <h2>Get in Touch</h2>
+        <p>We’d love to hear from you.</p>
+
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Your Name">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Email Address">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" rows="4" placeholder="Message"></textarea>
+          </div>
+          <button class="btn btn-dark">Send Message</button>
+        </form>
+      </div>
+
+      <div class="col-md-6 fade-up">
+        <img src="/static/assets/Images/Contact-us-formimg-01-768x218.png" class="img-fluid rounded">
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
