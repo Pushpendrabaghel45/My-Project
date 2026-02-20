@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Your Tasks{% endblock %}
+{% block content %}
+<h2>Your Tasks</h2>
+<p><a href="{{ url_for('add_task') }}">+ Add New Task</a></p>
+
+{% if tasks %}
+<ul class="task-list">
+  {% for task in tasks %}
+    <li class="task-item">
+      <div class="task-main">
+        <strong {% if task.done %}class="done"{% endif %}>{{ task.title }}</strong>
+        <div class="meta">
+          <small>Added: {{ task.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+          {% if task.description %}
+            <p class="desc">{{ task.description }}</p>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="task-actions">
+        <a href="{{ url_for('edit_task', id=task.id) }}">Edit</a>
+        <form method="POST" action="{{ url_for('delete_task', id=task.id) }}" style="display:inline;">
+          <button type="submit" onclick="return confirm('Delete this task?');">Delete</button>
+        </form>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
+{% else %}
+  <p>No tasks yet. <a href="{{ url_for('add_task') }}">Add one</a>.</p>
+{% endif %}
+{% endblock %}

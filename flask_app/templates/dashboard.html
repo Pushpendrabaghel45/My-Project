@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h2>Dashboard</h2>
+<p>Welcome, <strong>{{ username }}</strong>!</p>
+
+<div class="stats">
+  <div class="stat">
+    <strong>{{ tasks_count }}</strong>
+    <span>Tasks</span>
+  </div>
+  <div class="stat">
+    <strong>{{ completed_count }}</strong>
+    <span>Completed</span>
+  </div>
+</div>
+
+<p>Go to <a href="{{ url_for('tasks') }}">Task Manager</a> to view and manage your tasks.</p>
+{% endblock %}
