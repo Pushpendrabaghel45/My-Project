@@ -17,7 +17,7 @@ def admin_personal_details(request):
     return render(request, 'admin/personaldetails.html')
 
 def admin_logout(request):
-    print("chala inside route se")
+    # print("chala inside route se")
     request.session['user_logged_in'] = False
     request.session.flush()  # clear session
     return redirect('admin_login')
@@ -142,5 +142,4 @@ def admin_category_delete(request, id):
     category = get_object_or_404(Category, id=id)
     category.delete()
     return redirect('admin_categories')
-
 

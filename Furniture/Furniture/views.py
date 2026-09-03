@@ -57,3 +57,4 @@ def admin_logout(request):
     logout(request)
     request.session.flush()
     return redirect('home')
+
